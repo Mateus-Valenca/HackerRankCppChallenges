@@ -1,0 +1,44 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    int opt;
+    std::map<string,int> grades;
+    for(int i=0; i<n;i++){
+        string name;
+        int grade;
+        cin>>opt;
+        switch (opt) {
+            case 1:
+                cin>>name>>grade;
+                grades[name]+=grade;
+                break;
+            case 2:
+                cin>>name;
+                grades.erase(name);
+                break;
+            case 3:
+                cin>>name;
+                map<string,int>::iterator it = grades.find(name);
+                if(it!=grades.end()){
+                    cout<<it->second<<endl;
+                }else{
+                    cout<<"0"<<endl;
+                }
+                break;
+        }
+    }  
+    return 0;
+}
+
+
+
